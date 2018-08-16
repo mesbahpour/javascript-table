@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<style>
+		body{
+			background-color: #3845A5;
+		}
+		td {
+			border: 2px solid #FE5399;
+			padding: 10px;
+			height: 20px;
+			width: 20px;
+			border-radius: 5px;
+			background-color: #FE5399;
+			color: #fff;
+			text-align: center;
+		}
+		table{
+			margin: 0 auto;
+			margin-top: 70px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="div"></div>
+	<p></p>
+
+	<script>
+		let totalRows = 10;
+		let cellsInRow = 10;
+		/*let min = 1;
+		let max = 9;
+		*/
+		function drawTable() {
+			let div = document.getElementById('div');
+			let drawtable = document.createElement("table");
+			for (let r = 0; r < totalRows; r++) {
+				let row = document.createElement("tr");
+				for (let c = 0; c < cellsInRow; c++) {
+					let cell = document.createElement("td");
+					let cellText = document.createTextNode(Math.floor(Math.random() * 10));
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+
+
+					cell.setAttribute("onmouseover", "color(this)");
+
+
+
+				}
+
+
+				drawtable.appendChild(row);
+
+
+			}
+
+			div.appendChild(drawtable);
+
+
+		}
+
+		window.onload = drawTable;
+
+
+
+
+		function color(cell) {
+
+			for (let k = 0; k < 100; k++) {
+				if (document.getElementsByTagName('td')[k].innerHTML === cell.innerHTML)
+					document.getElementsByTagName('td')[k].style.backgroundColor = "#94D7C5";
+				else {
+					document.getElementsByTagName('td')[k].style.backgroundColor = "#FE5399";
+				}
+
+
+
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>
